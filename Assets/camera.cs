@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class camera : MonoBehaviour
 {
+    bool isRotation = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +14,15 @@ public class camera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 rotate = new Vector3(0, 1, 0);
-        gameObject.transform.Rotate(rotate);
+        if (isRotation)
+        {
+            Vector3 rotate = new Vector3(0, 1, 0);
+            gameObject.transform.Rotate(rotate);
+        }
+    }
+
+    public void RotationButton()
+    {
+        isRotation = !isRotation;
     }
 }
