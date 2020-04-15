@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class Robot : MonoBehaviour
 {
+    public Material material;
     bool isRotation = false;
     // Start is called before the first frame update
+    protected void Awake()
+    {
+        foreach (Transform child in transform)
+        {
+            child.gameObject.GetComponent<MeshRenderer>().material = material;
+        }
+    }
+
     void Start()
     {
-        
     }
 
     // Update is called once per frame
